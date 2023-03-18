@@ -52,7 +52,7 @@ spec:
             allowedHosts:
               - github.com
               - dev.azure.com
-          requestUserCredentials:
+            requestUserCredentials:
               secretsKey: USER_OAUTH_TOKEN
 
   steps:
