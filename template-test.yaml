@@ -51,6 +51,9 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+              - dev.azure.com
+          requestUserCredentials:
+              secretsKey: USER_OAUTH_TOKEN
 
   steps:
     - id: template
@@ -71,11 +74,12 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:azure
       input:
-        allowedHosts: ["github.com"]
+        allowedHosts: ["github.com","dev.azure.com"]
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
 
     - id: register
       name: Register
